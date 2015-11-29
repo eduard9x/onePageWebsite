@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Portfolio 3 </title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/demo.css">
+<script src="js/jquery.min.js"></script>
+<script	src="js/jquery.smint.js"></script>
+<script src="js/jquery.vide.min.js"></script>
+
+<script>
+
+$(document).ready( function() {
+	$('.wrap').css('opacity', '0');
+  setTimeout(sample, 6000);
+
+
+function sample() {
+    $('.load').fadeOut();
+    $('.wrap').fadeTo('slow', '1');
+	}
+
+// get the current year and adding it to the
+	var text = $("h2.subtitle").text();
+	var currentYear = (new Date).getFullYear();
+	currentYear =  currentYear + 3;
+	text = text + currentYear;
+	$("h2.subtitle").text(text);
+
+    $('.subMenu').smint({
+    	'scrollSpeed' : 1000
+    });
+
+});
+
+</script>
+</head>
+<body>
+
+	<div class="load">
+		<div>A</div>
+		<div>I</div>
+		<div>D</div>
+		<div>E</div>
+		<div>M</div>
+		<div>I</div>
+		<div>T</div>
+		<div>L</div>
+		<div>U</div>
+		<div>M</div>
+	</div>
+
+<div class="wrap">
+
+	<div class="sVid" data-vide-bg="video/hero" data-vide-options="position: 0% 50%"></div>
+
+	<div class="section sTop">
+		<div class="inner">
+			<h1 class="title">Multimedia Computing BSc Honours</h1>
+			<h2 class="subtitle"> Central London | 3 Years Course | Graduation: </h2>
+
+		</div>
+	</div>
+
+	<div class="subMenu" >
+	 	<div class="inner">
+	 		<a href="#sVid" class="subNavBtn">Home</a>
+	 		<a href="#s1" class="subNavBtn">Section 1</a>
+			<a href="#s2" class="subNavBtn">Section 2</a>
+			<a href="#s3" class="subNavBtn">Section 3</a>
+			<a href="#s4" class="subNavBtn">Section 4</a>
+			<a href="#s5" class="subNavBtn">Section 5</a>
+			<a href="https://twitter.com/rabmyself" class="subNavBtn extLink end">External Link</a>
+		</div>
+	</div>
+
+	<div class="section s1">
+		<div class="inner ">
+			<h1>Section 1</h1>
+		</div>
+	</div>
+
+	<div class="section s2">
+		<div class="inner">
+			<h1>Section 2</h1>
+			<p><a href="#s4" class="intLink">Internal Link: Jump to Section 4</a></p>
+			<p><a href="#sTop" class="intLink">Internal Link: Back to Top</a></p>
+		</div>
+	</div>
+
+	<div class="section s3">
+		<div class="inner">
+			<h1>Section 3</h1>
+		</div>
+	</div>
+
+	<div class="section s4">
+		<div class="inner">
+			<h1>Section 4</h1>
+		</div>
+	</div>
+
+	<div class="section s5">
+		<div class="inner">
+			<h1>Section 5</h1>
+		</div>
+	</div>
+
+</div>
+
+</body>
+</html>
