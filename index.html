@@ -15,19 +15,199 @@
 <link rel="stylesheet" href="css/jBox.css">
 <script src="js/jBox.min.js"></script>
 
+<!--
+		You need to include this script tag on any page that has a Google Map.
+
+		The following script tag will work when opening this example locally on your computer.
+		But if you use this on a localhost server or a live website you will need to include an API key.
+		Sign up for one here (it's free for small usage):
+				https://developers.google.com/maps/documentation/javascript/tutorial#api_key
+
+		After you sign up, use the following script tag with YOUR_GOOGLE_API_KEY replaced with your actual key.
+				<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_API_KEY&sensor=false"></script>
+
+
+*** It works now, but I still have to register.
+-->
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
 
 <script>
 
 $(document).ready( function() {
 
 
-	new jBox('Modal', {
-     width: 300,
-     height: 200,
-     attach: $('.myModal'),
-     title: $('.myModal').text(),
-     content: $('.myModal').attr('content')
- });
+
+				// When the window has finished loading create our google map below
+				google.maps.event.addDomListener(window, 'load', init);
+
+				function init() {
+						// Basic options for a simple Google Map
+						// For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+						var mapOptions = {
+								// How zoomed in you want the map to start at (always required)
+								zoom: 17,
+
+								// The latitude and longitude to center the map (always required)
+								center: new google.maps.LatLng(51.520649, -0.139686), // New Cavendish
+
+								// How you would like to style the map.
+								// This is where you would paste any style found on Snazzy Maps.
+								styles: [
+		{
+		"featureType": "landscape",
+		"stylers": [
+				{
+						"saturation": -100
+				},
+				{
+						"lightness": 65
+				},
+				{
+						"visibility": "on"
+				}
+		]
+		},
+		{
+		"featureType": "poi",
+		"stylers": [
+				{
+						"saturation": -100
+				},
+				{
+						"lightness": 51
+				},
+				{
+						"visibility": "simplified"
+				}
+		]
+		},
+		{
+		"featureType": "road.highway",
+		"stylers": [
+				{
+						"saturation": -100
+				},
+				{
+						"visibility": "simplified"
+				}
+		]
+		},
+		{
+		"featureType": "road.arterial",
+		"stylers": [
+				{
+						"saturation": -100
+				},
+				{
+						"lightness": 30
+				},
+				{
+						"visibility": "on"
+				}
+		]
+		},
+		{
+		"featureType": "road.local",
+		"stylers": [
+				{
+						"saturation": -100
+				},
+				{
+						"lightness": 40
+				},
+				{
+						"visibility": "on"
+				}
+		]
+		},
+		{
+		"featureType": "transit",
+		"stylers": [
+				{
+						"saturation": -100
+				},
+				{
+						"visibility": "simplified"
+				}
+		]
+		},
+		{
+		"featureType": "administrative.province",
+		"stylers": [
+				{
+						"visibility": "off"
+				}
+		]
+		},
+		{
+		"featureType": "water",
+		"elementType": "labels",
+		"stylers": [
+				{
+						"visibility": "on"
+				},
+				{
+						"lightness": -25
+				},
+				{
+						"saturation": -100
+				}
+		]
+		},
+		{
+		"featureType": "water",
+		"elementType": "geometry",
+		"stylers": [
+				{
+						"hue": "#ffff00"
+				},
+				{
+						"lightness": -25
+				},
+				{
+						"saturation": -97
+				}
+		]
+		}
+		]
+						};
+
+						// Get the HTML DOM element that will contain your map
+						// We are using a div with id="map" seen below in the <body>
+						var mapElement = document.getElementById('map');
+
+						// Create the Google Map using our element and options defined above
+						var map = new google.maps.Map(mapElement, mapOptions);
+
+						// Let's also add a marker while we're at it
+						var marker = new google.maps.Marker({
+								position: new google.maps.LatLng(51.520649, -0.139686),
+								map: map,
+								title: 'Snazzy!'
+						});
+				}
+
+
+
+
+
+
+
+ // $( ".myModal").on("click", function() {
+ // 		 var list = $("li").index(this);
+ // 		 var saved =  $("li")[list].title;
+ // 	 });
+ //
+ // new jBox('Modal', {
+ //     width: 300,
+ //     height: 200,
+ //     attach: $('.myModal'),
+ //     title: saved,
+ //     content: $('.myModal').attr('content')
+ // });
+
+$('.tooltip').jBox('Tooltip');
 
 	$('.wrap').css('opacity', '0');
   setTimeout(sample, 6000);
@@ -50,6 +230,9 @@ function sample() {
     });
 
       $("#lightgallery").lightGallery();
+
+
+
 
 });
 
@@ -84,30 +267,30 @@ function sample() {
 
 	<div class="subMenu" >
 	 	<div class="inner">
-	 		<a href="#sVid" class="subNavBtn">Home</a>
-	 		<a href="#s1" class="subNavBtn">Section 1</a>
-			<a href="#s2" class="subNavBtn">Section 2</a>
-			<a href="#s3" class="subNavBtn">Section 3</a>
-			<a href="#s4" class="subNavBtn">Section 4</a>
-			<a href="#s5" class="subNavBtn">Section 5</a>
-			<a href="https://twitter.com/rabmyself" class="subNavBtn extLink end">External Link</a>
+	 		<a href="#sVid" class="subNavBtn">Multimedia</a>
+	 		<a href="#s1" class="subNavBtn">Gallery</a>
+			<a href="#s2" class="subNavBtn">Summary</a>
+			<a href="#s3" class="subNavBtn">Year 1</a>
+			<a href="#s4" class="subNavBtn">Year 2</a>
+			<a href="#s5" class="subNavBtn">Year 3</a>
+			<a href="#s6" class="subNavBtn">Contact</a>
 		</div>
 	</div>
 
 	<div class="section s1">
 		<div class="inner ">
-			<h1>Section 1</h1>
+			<h1> Gallery </h1>
 
 						<!-- The Gallery plugin -->
 						<div id="links">
-						    <a href="images/1.jpg" title="Banana">
-						        <img src="images/thumbnails/1.jpg" alt="Banana">
+						    <a href="images/1.jpg">
+						        <img src="images/thumbnails/1.jpg">
 						    </a>
-						    <a href="images/2.jpg" title="Apple">
-						        <img src="images/thumbnails/2.jpg" alt="Apple">
+						    <a href="images/2.jpg">
+						        <img src="images/thumbnails/2.jpg">
 						    </a>
-						    <a href="images/3.jpg" title="Orange">
-						        <img src="images/thumbnails/3.jpg" alt="Orange">
+						    <a href="images/3.jpg">
+						        <img src="images/thumbnails/3.jpg">
 						    </a>
 						</div>
 
@@ -127,7 +310,7 @@ function sample() {
 
 	<div class="section s2">
 		<div class="inner">
-			<h1>Section 2</h1>
+			<h1> Summary </h1>
 			<!-- <p><a href="#s4" class="intLink">Internal Link: Jump to Section 4</a></p>
 			<p><a href="#sTop" class="intLink">Internal Link: Back to Top</a></p> -->
 
@@ -139,18 +322,18 @@ function sample() {
 
 	<div class="section s3">
 		<div class="inner">
-
 			<h1>Year 1 (Credit Level 4)</h1>
+			<img class="article" src="images/cup.jpg">
 			<p> The ﬁrst year provides you with an underpinning of the subject area. You will be introduced to computer programming concepts and languages that are used to create interactive products, basic maths that are required to understand programming algorithms and concepts, basic UI/UX principles, and the process of interactive product design. </p>
 				<h4>Subjects of study include:</h4>
 				<ul>
-						<li class="myModal" content="Hello there!">User Experience Design</li>
-						<li>Information Systems</li>
-						<li>Maths for Computing</li>
-						<li>Software Development Principles I</li>
-						<li>Software Development Principles II</li>
-						<li>Interactive Product Development</li>
-						<li>Web Technology</li>
+						<li class="tooltip" content="User Experience Design" title=" Great module.<br/> Learned a lot about usability, active testing, wireframes, colours, design and lots of other useful stuff.">User Experience Design</li><br/>
+						<li class="tooltip" content="Information Systems" title=" Boring module.<br/> Learned how to use SQL, how to create tables and to work with them.<br/> Lots of useful information but rather boring as it takes hours of work in order to be able to create a basic table.">Information Systems</li><br/>
+						<li class="tooltip" content="Mathematics for Computing" title=" Interesting module.<br/> It was rather challenging to learn everything.<br/> Most of the people were struggling with it. We had to learn most of the stuff from YouTube tutorials. ">Mathematics for Computing</li><br/>
+						<li class="tooltip" content="Software Development Principles I" title=" Learned the basics of Java.<br/> Interesting but rather easy.<br/> If you are a bit passionate about this, you will find it cool. ">Software Development Principles I</li><br/>
+						<li class="tooltip" content="Software Development Principles II" title=" Broadened my knowledge of Java.<br/> Started learning the basics of Object Oriented Programming.<br/> Interesting assessments. ">Software Development Principles II</li><br/>
+						<li class="tooltip" content="Interactive Product Development" title=" Developed games, animations and banners.<br/> Lots of useful stuff for fron end development. ">Interactive Product Development</li><br/>
+						<li class="tooltip" content="Web Technology" title=" Managed to learn about HTML and CSS.<br/> I find it much more interesting than Java as you can actually see your progress while working. ">Web Technology</li>
 				</ul>
 
 		</div>
@@ -159,16 +342,17 @@ function sample() {
 	<div class="section s4">
 		<div class="inner">
 			<h1>Year 2 (Credit Level 5)</h1>
+			<img class="article" src="images/goals.png">
 			<p>The second year introduces multimedia-speciﬁc modules which allow a degree of specialisation in design and development, from traditional websites to mobile applications. The curriculum builds onto the fundamental conceptual knowledge attained in Level 4 to apply it to ﬁeld-speciﬁc subjects. The emphasis is on developing your professional skills and learning how multimedia projects are managed and organised. Creative modules allow you to build your portfolio in order to demonstrate your technical and creative skills.</p>
 				<h4>Subjects of study include:</h4>
 				<ul>
-						<li>Object-Oriented Development I</li>
-						<li>Professional Practice</li>
-						<li>Software Group Project</li>
-						<li>Advanced Client-side Web Development</li>
-						<li>Object-Oriented Development II</li>
-						<li>Mobile Application Development</li>
-						<li>Advanced Interactive Product Development</li>
+						<li class="tooltip" content="Object-Oriented Development I" title=" Really challenging assessments. More work needed. <br/> But at the end of the day, when you have a nice program, you are happy.">Object-Oriented Development I</li><br/>
+						<li class="tooltip" content="Professional Practice" title=" Lots of talking. Research on legal aspects.<br/> Teamwork. Presentation skills.<br/> A nice module overall.">Professional Practice</li><br/>
+						<li class="tooltip" content="Software Group Project" title=" Big module, goes throughout the whole year. Teamwork. <br/> It makes you think out of the box.">Software Group Project</li><br/>
+						<li class="tooltip" content="Advanced Client-side Web Development" title=" New and challenging assessments. <br/>Learning about plugins and lots of cool stuff. ">Advanced Client-side Web Development</li><br/>
+						<li class="tooltip" content="Object-Oriented Development II" title=" Haven't got there, but I'm expecting it to be difficult.">Object-Oriented Development II</li><br/>
+						<li class="tooltip" content="Mobile Application Development" title=" Learning about Android and how to create mobile apps.">Mobile Application Development</li><br/>
+						<li class="tooltip" content="Advanced Interactive Product Development" title=" More about animations. Continuing the module from last year.">Advanced Interactive Product Development</li>
 				</ul>
 		</div>
 	</div>
@@ -176,16 +360,21 @@ function sample() {
 	<div class="section s5">
 		<div class="inner">
 			<h1>Year 3 (Credit Level 6)</h1>
+			<img class="article" src="images/study.png">
 			<p>The third year builds on speciﬁc skills attained in Level 5, and exposes you to the specialised research topics of multimedia design and development. You will complete a project of your own choice (a game, a dynamic and responsive web application or a mobile app) that provides you with the opportunity to develop more advanced skills and techniques in the potential area you will be seeking employment.</p>
 				<h4>Subjects of study include:</h4>
 				<ul>
-						<li>Advanced Multimedia</li>
-						<li>Mixed Reality Technologies</li>
-						<li>Innovations in Software Development</li>
-						<li>Website and E-Commerce Management</li>
-						<li>Plus a large individual Project</li>
+						<li class="tooltip" content="Advanced Multimedia" title=" More stuff about Multimedia degree. More to learn on the design and UX/UI.">Advanced Multimedia</li><br/>
+						<li class="tooltip" content="Mixed Reality Technologies" title=" Able to work on the capture motion lab.<br/> Creating interesting projects and learning about new technologies.">Mixed Reality Technologies</li><br/>
+						<li class="tooltip" content="Innovations in Software Development" title=" Learning about the latest technologies in software development. <br/> I think we'll work on C#. ">Innovations in Software Development</li><br/>
+						<li class="tooltip" content="Website and E-Commerce Management" title=" Basically: How to get rich creating websited. ">Website and E-Commerce Management</li><br/>
+						<li class="tooltip" content="A large individual Project" title=" The final project.<br/> The one that will make my mother proud.">A large individual Project</li>
 				</ul>
 		</div>
+	</div>
+
+	<div id="map" class="section s6">
+
 	</div>
 
 </div>
@@ -202,8 +391,6 @@ document.getElementById('links').onclick = function (event) {
     blueimp.Gallery(links, options);
 
 };
-
-
 
 </script>
 
