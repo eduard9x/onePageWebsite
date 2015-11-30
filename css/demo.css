@@ -38,8 +38,6 @@ a {
 	color: #3e3e3e;
 }
 
-
-
 .clear {
 	clear: both;
 }
@@ -47,7 +45,7 @@ a {
 	width: 100%;
 	max-width: 1600px;
 	min-width: 960px;
-	z-index: 10;
+	/*z-index: 10;*/
 	position: relative;
 	margin: 0 auto;
 	padding: 0;
@@ -60,11 +58,11 @@ a {
 	width: 100%;
 	max-width: 1600px;
 	min-width: 960px;
-	z-index: 10;
+	/*z-index: 10;*/
 	position: relative;
 	margin: 0 auto;
 	padding: 0 0 20px 0;
-	height: 500px;
+	height: inherit;
 }
 
 
@@ -144,7 +142,8 @@ a {
 .s1 {
 	background:#184764;
 	color:#fff;
-
+	/*height: inherit;*/
+	/*z-index: 10;*/
 }
 
 
@@ -157,6 +156,7 @@ a {
 
 .s3 {
 	background: #1b83b3;
+	color:#fff;
 }
 
 

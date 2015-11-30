@@ -3,15 +3,32 @@
 <head>
 <title> Portfolio 3 </title>
 
+<meta charset="utf-8">
+
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="css/demo.css">
 <script src="js/jquery.min.js"></script>
 <script	src="js/jquery.smint.js"></script>
 <script src="js/jquery.vide.min.js"></script>
+<link rel="stylesheet" href="css/blueimp-gallery.min.css">
+
+<link rel="stylesheet" href="css/jBox.css">
+<script src="js/jBox.min.js"></script>
+
 
 <script>
 
 $(document).ready( function() {
+
+
+	new jBox('Modal', {
+     width: 300,
+     height: 200,
+     attach: $('.myModal'),
+     title: $('.myModal').text(),
+     content: $('.myModal').attr('content')
+ });
+
 	$('.wrap').css('opacity', '0');
   setTimeout(sample, 6000);
 
@@ -31,6 +48,8 @@ function sample() {
     $('.subMenu').smint({
     	'scrollSpeed' : 1000
     });
+
+      $("#lightgallery").lightGallery();
 
 });
 
@@ -78,36 +97,115 @@ function sample() {
 	<div class="section s1">
 		<div class="inner ">
 			<h1>Section 1</h1>
+
+						<!-- The Gallery plugin -->
+						<div id="links">
+						    <a href="images/1.jpg" title="Banana">
+						        <img src="images/thumbnails/1.jpg" alt="Banana">
+						    </a>
+						    <a href="images/2.jpg" title="Apple">
+						        <img src="images/thumbnails/2.jpg" alt="Apple">
+						    </a>
+						    <a href="images/3.jpg" title="Orange">
+						        <img src="images/thumbnails/3.jpg" alt="Orange">
+						    </a>
+						</div>
+
+						  <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+						  <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+						      <div class="slides"></div>
+						      <h3 class="title"></h3>
+						      <a class="prev">‹</a>
+						      <a class="next">›</a>
+						      <a class="close">×</a>
+						      <a class="play-pause"></a>
+						      <ol class="indicator"></ol>
+						  </div>
+
 		</div>
 	</div>
 
 	<div class="section s2">
 		<div class="inner">
 			<h1>Section 2</h1>
-			<p><a href="#s4" class="intLink">Internal Link: Jump to Section 4</a></p>
-			<p><a href="#sTop" class="intLink">Internal Link: Back to Top</a></p>
+			<!-- <p><a href="#s4" class="intLink">Internal Link: Jump to Section 4</a></p>
+			<p><a href="#sTop" class="intLink">Internal Link: Back to Top</a></p> -->
+
+			<p>Multimedia computing refers to computer-based systems, products and services which respond to the user’s actions by presenting rich content such as text, graphics, animation and video. The multimedia industry requires practitioners with a combination of specialised skills, such as an understanding of user interface (UI) and user experience (UX) principles, and also the technical competences for developing and controlling responsive interfaces that adapt to multiple platforms and devices.</p>
+			<p>To address the current requirements of the multimedia sector this course covers the principles that contribute to effective UX design, content management and optimisation to be incorporated in interactive products. The course focuses primarily on the technical aspects of interactive product development. It offers two main directions of specialisation – web design and development, and mobile application design and development. You will be supported to build a rich portfolio to enhance your employability, and have the opportunity to gain credit for industrial certiﬁcation courses licensed by major commercial software developers.</p>
+
 		</div>
 	</div>
 
 	<div class="section s3">
 		<div class="inner">
-			<h1>Section 3</h1>
+
+			<h1>Year 1 (Credit Level 4)</h1>
+			<p> The ﬁrst year provides you with an underpinning of the subject area. You will be introduced to computer programming concepts and languages that are used to create interactive products, basic maths that are required to understand programming algorithms and concepts, basic UI/UX principles, and the process of interactive product design. </p>
+				<h4>Subjects of study include:</h4>
+				<ul>
+						<li class="myModal" content="Hello there!">User Experience Design</li>
+						<li>Information Systems</li>
+						<li>Maths for Computing</li>
+						<li>Software Development Principles I</li>
+						<li>Software Development Principles II</li>
+						<li>Interactive Product Development</li>
+						<li>Web Technology</li>
+				</ul>
+
 		</div>
 	</div>
 
 	<div class="section s4">
 		<div class="inner">
-			<h1>Section 4</h1>
+			<h1>Year 2 (Credit Level 5)</h1>
+			<p>The second year introduces multimedia-speciﬁc modules which allow a degree of specialisation in design and development, from traditional websites to mobile applications. The curriculum builds onto the fundamental conceptual knowledge attained in Level 4 to apply it to ﬁeld-speciﬁc subjects. The emphasis is on developing your professional skills and learning how multimedia projects are managed and organised. Creative modules allow you to build your portfolio in order to demonstrate your technical and creative skills.</p>
+				<h4>Subjects of study include:</h4>
+				<ul>
+						<li>Object-Oriented Development I</li>
+						<li>Professional Practice</li>
+						<li>Software Group Project</li>
+						<li>Advanced Client-side Web Development</li>
+						<li>Object-Oriented Development II</li>
+						<li>Mobile Application Development</li>
+						<li>Advanced Interactive Product Development</li>
+				</ul>
 		</div>
 	</div>
 
 	<div class="section s5">
 		<div class="inner">
-			<h1>Section 5</h1>
+			<h1>Year 3 (Credit Level 6)</h1>
+			<p>The third year builds on speciﬁc skills attained in Level 5, and exposes you to the specialised research topics of multimedia design and development. You will complete a project of your own choice (a game, a dynamic and responsive web application or a mobile app) that provides you with the opportunity to develop more advanced skills and techniques in the potential area you will be seeking employment.</p>
+				<h4>Subjects of study include:</h4>
+				<ul>
+						<li>Advanced Multimedia</li>
+						<li>Mixed Reality Technologies</li>
+						<li>Innovations in Software Development</li>
+						<li>Website and E-Commerce Management</li>
+						<li>Plus a large individual Project</li>
+				</ul>
 		</div>
 	</div>
 
 </div>
+
+<script src="js/blueimp-gallery.min.js"></script>
+
+<script>
+document.getElementById('links').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+
+};
+
+
+
+</script>
 
 </body>
 </html>
